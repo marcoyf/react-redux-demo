@@ -1,13 +1,35 @@
+// command to intregrate React with Redux: npm install --save react-redux
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
+
+// using a single Reducer
+// import reducer from './store/reducer';
+
+// using multiple Reducers
+import counterReducer from './store/reducers/counter';
+import resultReducer from './store/reducers/result';
+
+const rootReducer = combineReducers({
+  ctr: counterReducer,
+  res: resultReducer
+});
+
+// using a single Reducer
+// const store = createStore(reducer);
+
+// using multiple Reducers combined
+const store = createStore(rootReducer);
+
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
