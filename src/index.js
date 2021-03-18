@@ -1,4 +1,4 @@
-// command to intregrate React with Redux: npm install --save react-redux
+// command to intregrate React with Redux: npm install --save redux react-redux
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
